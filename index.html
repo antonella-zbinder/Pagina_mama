@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabiduría Arcana</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Sabiduría Arcana</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h2>Descubre lo oculto</h2>
+        <p>Conecta con la energía del universo a través del tarot, rituales y sabiduría ancestral.</p>
+    </section>
+
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Lectura de cartas tarot</li>
+            <li>Endulzamientos</li>
+            <li>Amarres</li>
+            <li>Abre caminos</li>
+            <li>Rituales personalizados</li>
+            <li>Limpiezas energéticas</li>
+        </ul>
+    </section>
+
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>Soy guía espiritual con más de 10 años de experiencia en prácticas esotéricas, enfocada en ayudarte a
+            encontrar respuestas y equilibrio. Maestra de Reiki Usui, Karuna y dadores de luz.</p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contáctame</h2>
+
+        <p>¿Cómo preferís contactarme?</p>
+        <div class="contact-buttons">
+            <button onclick="mostrarFormulario('whatsapp')">WhatsApp</button>
+            <button onclick="mostrarFormulario('email')">Email</button>
+        </div>
+
+        <form id="form-whatsapp" class="oculto">
+            <input type="text" id="wa-nombre" placeholder="Tu nombre" required />
+            <input type="email" id="wa-email" placeholder="Tu email" required />
+            <textarea id="wa-mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
+            <button type="submit">Enviar por WhatsApp</button>
+        </form>
+
+        <form id="form-email" class="oculto" action="https://formspree.io/f/mdkzvyvo" method="POST">
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+            <input type="email" name="email" placeholder="Tu email" required />
+            <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
+            <button type="submit">Enviar por Email</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sabiduría Arcana</p>
+        <div class="social-icons">
+            <a href="https://wa.me/5491127755747" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/15fSSCLT6g" target="_blank"><i class="fab fa-facebook"></i></a>
+
+        </div>
+    </footer>
+
+    <script>
+        function mostrarFormulario(tipo) {
+            const formWhatsapp = document.getElementById('form-whatsapp');
+            const formEmail = document.getElementById('form-email');
+
+            if (tipo === 'whatsapp') {
+                formWhatsapp.classList.remove('oculto');
+                formEmail.classList.add('oculto');
+            } else {
+                formEmail.classList.remove('oculto');
+                formWhatsapp.classList.add('oculto');
+            }
+        }
+
+        document.getElementById('form-whatsapp').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('wa-nombre').value;
+            const email = document.getElementById('wa-email').value;
+            const mensaje = document.getElementById('wa-mensaje').value;
+
+            const texto = `Hola, soy ${nombre}. Mi correo es ${email}. Quiero consultarte: ${mensaje}`;
+            const telefono = '5491127755747'; 
+            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;
+
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
