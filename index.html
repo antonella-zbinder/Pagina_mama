@@ -2,14 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sabiduría Arcana</title>
     <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora&display=swap" rel="stylesheet" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 </head>
 
 <body>
+    <div class="particle-background"></div>
+
     <header>
         <h1>Sabiduría Arcana</h1>
         <nav>
@@ -25,22 +30,28 @@
         <p>Conecta con la energía del universo a través del tarot, rituales y sabiduría ancestral.</p>
     </section>
 
-    <section id="servicios">
+    <section id="servicios" class="seccion-con-illustracion">
         <h2>Servicios</h2>
-        <ul>
-            <li>Lectura de cartas tarot</li>
-            <li>Endulzamientos</li>
-            <li>Amarres</li>
-            <li>Abre caminos</li>
-            <li>Rituales personalizados</li>
-            <li>Limpiezas energéticas</li>
-        </ul>
+        <div class="contenido-servicios">
+            <ul>
+                <li>Lectura de cartas tarot</li>
+                <li>Endulzamientos</li>
+                <li>Amarres</li>
+                <li>Abre caminos</li>
+                <li>Rituales personalizados</li>
+                <li>Limpiezas energéticas</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="sobre-mi">
+    <section id="sobre-mi" class="seccion-con-illustracion bg-pergamino">
         <h2>Sobre mí</h2>
-        <p>Soy guía espiritual con más de 10 años de experiencia en prácticas esotéricas, enfocada en ayudarte a
-            encontrar respuestas y equilibrio. Maestra de Reiki Usui, Karuna y dadores de luz.</p>
+        <div class="contenido-sobre-mi">
+            <p>
+                Soy guía espiritual con más de 10 años de experiencia en prácticas esotéricas, enfocada en ayudarte a
+                encontrar respuestas y equilibrio. Maestra de Reiki Usui, Karuna y dadores de luz.
+            </p>
+        </div>
     </section>
 
     <section id="contacto">
@@ -59,7 +70,12 @@
             <button type="submit">Enviar por WhatsApp</button>
         </form>
 
-        <form id="form-email" class="oculto" action="https://formspree.io/f/mdkzvyvo" method="POST">
+        <form
+            id="form-email"
+            class="oculto"
+            action="https://formspree.io/f/mdkzvyvo"
+            method="POST"
+        >
             <input type="text" name="nombre" placeholder="Tu nombre" required />
             <input type="email" name="email" placeholder="Tu email" required />
             <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
@@ -68,40 +84,49 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Sabiduría Arcana</p>
+        <p>&copy; 2024 Antonella Zbinder</p>
         <div class="social-icons">
-            <a href="https://wa.me/5491127755747" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.facebook.com/share/15fSSCLT6g" target="_blank"><i class="fab fa-facebook"></i></a>
-
+            <a href="https://wa.me/5491127755747" target="_blank" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.facebook.com/share/15fSSCLT6g" target="_blank" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+            ></a>
+        </div>
+        <div class="footer-symbols" aria-hidden="true">
+            <span class="symbol">✦</span>
+            <span class="symbol">☾</span>
+            <span class="symbol">🔮</span>
+            <span class="symbol">✧</span>
         </div>
     </footer>
 
     <script>
         function mostrarFormulario(tipo) {
-            const formWhatsapp = document.getElementById('form-whatsapp');
-            const formEmail = document.getElementById('form-email');
+            const formWhatsapp = document.getElementById("form-whatsapp");
+            const formEmail = document.getElementById("form-email");
 
-            if (tipo === 'whatsapp') {
-                formWhatsapp.classList.remove('oculto');
-                formEmail.classList.add('oculto');
+            if (tipo === "whatsapp") {
+                formWhatsapp.classList.remove("oculto");
+                formEmail.classList.add("oculto");
             } else {
-                formEmail.classList.remove('oculto');
-                formWhatsapp.classList.add('oculto');
+                formEmail.classList.remove("oculto");
+                formWhatsapp.classList.add("oculto");
             }
         }
 
-        document.getElementById('form-whatsapp').addEventListener('submit', function (e) {
+        document.getElementById("form-whatsapp").addEventListener("submit", function (e) {
             e.preventDefault();
 
-            const nombre = document.getElementById('wa-nombre').value;
-            const email = document.getElementById('wa-email').value;
-            const mensaje = document.getElementById('wa-mensaje').value;
+            const nombre = document.getElementById("wa-nombre").value;
+            const email = document.getElementById("wa-email").value;
+            const mensaje = document.getElementById("wa-mensaje").value;
 
             const texto = `Hola, soy ${nombre}. Mi correo es ${email}. Quiero consultarte: ${mensaje}`;
-            const telefono = '5491127755747'; 
+            const telefono = "5491127755747";
             const url = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;
 
-            window.open(url, '_blank');
+            window.open(url, "_blank");
         });
     </script>
 </body>
