@@ -5,38 +5,66 @@
     box-sizing: border-box;
 }
 
-body {
-    background: radial-gradient(circle at center, #1a1a1a, #0d0d0d 90%);
-    color: #E0E0E0;
-    font-family: 'Lora', serif;
-    line-height: 1.6;
+/* Animación de partículas doradas en fondo */
+.particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 2px, transparent 3px),
+        radial-gradient(circle, rgba(212, 175, 55, 0.2) 1.5px, transparent 2px);
+    background-position: 10px 10px, 30px 30px;
+    background-repeat: repeat;
+    animation: moveParticles 30s linear infinite;
 }
 
-/* Ocultar formularios por clase */
-.oculto {
-    display: none;
+@keyframes moveParticles {
+    0% {
+        background-position: 10px 10px, 30px 30px;
+    }
+    100% {
+        background-position: 500px 400px, 530px 460px;
+    }
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    font-family: "Lora", serif;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
 /* Encabezado */
 header {
-    background-color: #1A1A1A;
-    padding: 1.5em 1em;
+    background-color: #1a1a1a;
+    padding: 2em 1em;
     text-align: center;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    position: relative;
+    z-index: 2;
 }
 
 header h1 {
-    font-family: 'Cinzel Decorative', cursive;
-    color: #D4AF37;
+    font-family: "Cinzel Decorative", cursive;
+    color: #d4af37;
     font-size: 2.5em;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
 }
 
 /* Navegación */
 nav {
     margin-top: 1em;
+    z-index: 3;
+    position: relative;
 }
 
 nav a {
-    color: #8A2BE2;
+    color: #8a2be2;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -45,7 +73,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #D4AF37;
+    color: #d4af37;
     text-decoration: underline;
 }
 
@@ -56,12 +84,15 @@ section {
     max-width: 900px;
     margin: auto;
     animation: fadeIn 1s ease;
+    position: relative;
+    z-index: 2;
 }
 
 h2 {
-    color: #D4AF37;
+    color: #d4af37;
     margin-bottom: 1em;
     font-size: 1.8em;
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.7);
 }
 
 /* Listas */
@@ -83,32 +114,45 @@ form {
     max-width: 500px;
     margin: auto;
     margin-top: 1em;
+    position: relative;
+    z-index: 2;
 }
 
 input,
 textarea {
-    background-color: #1A1A1A;
-    color: #E0E0E0;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
     padding: 0.8em;
     border: 1px solid #333;
     font-size: 1em;
-    font-family: 'Lora', serif;
+    font-family: "Lora", serif;
     width: 100%;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }
 
 button {
     padding: 0.8em;
-    background-color: #8A2BE2;
+    background-color: #8a2be2;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    border-radius: 5px;
 }
 
 button:hover {
     background-color: #6a1bbf;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.9);
 }
 
 /* Botones de contacto */
@@ -122,40 +166,120 @@ button:hover {
 .contact-buttons button {
     padding: 0.6em 1.2em;
     font-size: 1em;
-    background-color: #8A2BE2;
+    background-color: #8a2be2;
     border: none;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     border-radius: 5px;
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
 }
 
 .contact-buttons button:hover {
     background-color: #6a1bbf;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.9);
 }
 
 /* Footer */
 footer {
-    background-color: #1A1A1A;
+    background-color: #1a1a1a;
     text-align: center;
     padding: 1.5em 1em;
     font-size: 0.9em;
     color: #aaa;
+    position: relative;
+    z-index: 2;
 }
 
 .social-icons {
     margin-top: 1em;
+    position: relative;
+    z-index: 3;
 }
 
 .social-icons a {
-    color: #D4AF37;
+    color: #d4af37;
     margin: 0 10px;
     font-size: 1.5em;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #8A2BE2;
+    color: #8a2be2;
+}
+
+/* Símbolos místicos dorados en footer */
+.footer-symbols {
+    margin-top: 1em;
+    font-size: 1.8em;
+    color: #d4af37;
+    letter-spacing: 0.8em;
+    opacity: 0.6;
+    animation: flicker 3s infinite alternate;
+}
+
+.footer-symbols .symbol {
+    margin: 0 5px;
+}
+
+/* Animación de parpadeo suave */
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.6;
+        text-shadow: 0 0 5px #d4af37;
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 15px #d4af37;
+    }
+}
+
+/* Sección servicios con ilustración */
+.seccion-con-illustracion .contenido-servicios {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.seccion-con-illustracion ul {
+    flex: 1 1 250px;
+}
+
+.illustration.tarot {
+    flex: 0 0 120px;
+    stroke: #d4af37;
+    fill: none;
+}
+
+/* Sección sobre mí con ilustración */
+.seccion-con-illustracion.bg-pergamino {
+    background: linear-gradient(135deg, #fef6e4 0%, #f4e9c1 100%);
+    color: #5a4b24;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.seccion-con-illustracion.bg-pergamino .contenido-sobre-mi {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: auto;
+    padding: 1em 2em;
+}
+
+.seccion-con-illustracion.bg-pergamino p {
+    flex: 1 1 350px;
+    font-family: "Lora", serif;
+    font-size: 1.1em;
+}
+
+.illustration.crystal {
+    flex: 0 0 120px;
+    stroke: #d4af37;
+    fill: none;
 }
 
 /* Animaciones */
@@ -194,5 +318,19 @@ footer {
     .contact-buttons {
         flex-direction: column;
         gap: 0.8em;
+    }
+
+    .seccion-con-illustracion .contenido-servicios,
+    .seccion-con-illustracion.bg-pergamino .contenido-sobre-mi {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .illustration.tarot,
+    .illustration.crystal {
+        flex: none;
+        width: 80px;
+        height: auto;
+        margin-bottom: 1em;
     }
 }
