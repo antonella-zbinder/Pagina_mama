@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    
     <div class="particle-background"></div>
 
     <header>
@@ -38,13 +39,14 @@
                 <li>Endulzamientos</li>
                 <li>Amarres</li>
                 <li>Abre caminos</li>
-                <li>Rituales personalizados</li>
                 <li>Limpiezas energéticas</li>
+                <li>Rituales personalizados</li>
+
             </ul>
         </div>
     </section>
 
-    <section id="sobre-mi" >
+    <section id="sobre-mi">
         <h2>Sobre mí</h2>
         <div class="contenido-sobre-mi">
             <p>
@@ -122,6 +124,23 @@
             window.open(url, "_blank");
         });
     </script>
+<script>
+function crearEstrellaFugaz() {
+    const estrella = document.createElement("div");
+    estrella.classList.add("shooting-star");
+
+    estrella.style.top = Math.random() * 60 + "%";
+    estrella.style.left = (60 + Math.random() * 30) + "%";
+    estrella.style.animationDelay = Math.random() * 10 + "s";
+
+    document.querySelector(".particle-background").appendChild(estrella);
+
+    setTimeout(() => estrella.remove(), 2000);
+}
+
+setInterval(crearEstrellaFugaz, 4000);
+</script>
+
 </body>
 
 </html>
