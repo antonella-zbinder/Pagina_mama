@@ -25,6 +25,7 @@
     0% {
         background-position: 10px 10px, 30px 30px;
     }
+
     100% {
         background-position: 500px 400px, 530px 460px;
     }
@@ -224,10 +225,13 @@ footer {
 
 /* Animación de parpadeo suave */
 @keyframes flicker {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.6;
         text-shadow: 0 0 5px #d4af37;
     }
+
     50% {
         opacity: 1;
         text-shadow: 0 0 15px #d4af37;
@@ -246,15 +250,10 @@ footer {
     flex: 1 1 250px;
 }
 
-.illustration.tarot {
-    flex: 0 0 120px;
-    stroke: #d4af37;
-    fill: none;
-}
 
 /* Sección sobre mí con ilustración */
 .seccion-con-illustracion.bg-pergamino {
-    background: linear-gradient(135deg, #fef6e4 0%, #f4e9c1 100%);
+    
     color: #5a4b24;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
@@ -276,10 +275,27 @@ footer {
     font-size: 1.1em;
 }
 
-.illustration.crystal {
-    flex: 0 0 120px;
-    stroke: #d4af37;
-    fill: none;
+
+/* Agrega un ícono dorado automáticamente antes de cada h2 */
+h2::before {
+    content: "✦";
+    color: #d4af37;
+    margin-right: 0.5em;
+    font-size: 1.2em;
+    vertical-align: middle;
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.7);
+}
+.icono-mistico {
+    color: #d4af37;
+    margin-right: 0.5em;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.icono-lista {
+    color: #d4af37;
+    margin-right: 0.5em;
+    font-size: 1.1em;
 }
 
 /* Animaciones */
@@ -288,6 +304,7 @@ footer {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -326,11 +343,15 @@ footer {
         align-items: flex-start;
     }
 
-    .illustration.tarot,
-    .illustration.crystal {
-        flex: none;
-        width: 80px;
-        height: auto;
-        margin-bottom: 1em;
-    }
+}
+/* Icono de estrella morada antes de cada item de Servicios */
+#servicios ul li::before {
+    content: "\f005"; /* Font Awesome: estrella hueca */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400; /* Regular para estrella hueca */
+    color: #8a2be2;
+    margin-right: 0.6em;
+}
+.oculto {
+    display: none;
 }
