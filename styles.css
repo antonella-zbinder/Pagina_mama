@@ -253,7 +253,7 @@ footer {
 
 /* Sección sobre mí con ilustración */
 .seccion-con-illustracion.bg-pergamino {
-    
+
     color: #5a4b24;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
@@ -285,6 +285,7 @@ h2::before {
     vertical-align: middle;
     text-shadow: 0 0 6px rgba(212, 175, 55, 0.7);
 }
+
 .icono-mistico {
     color: #d4af37;
     margin-right: 0.5em;
@@ -344,14 +345,107 @@ h2::before {
     }
 
 }
+
 /* Icono de estrella morada antes de cada item de Servicios */
 #servicios ul li::before {
-    content: "\f005"; /* Font Awesome: estrella hueca */
+    content: "\f005";
+    /* Font Awesome: estrella hueca */
     font-family: "Font Awesome 6 Free";
-    font-weight: 400; /* Regular para estrella hueca */
+    font-weight: 400;
+    /* Regular para estrella hueca */
     color: #8a2be2;
     margin-right: 0.6em;
 }
+
 .oculto {
     display: none;
 }
+
+#servicios ul li {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#servicios ul li:hover {
+    transform: translateX(5px);
+    color: #d4af37;
+}
+
+header h1 {
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+    }
+
+    to {
+        text-shadow: 0 0 15px rgba(212, 175, 55, 1);
+    }
+}
+.particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    background: #0d0d0d;
+    overflow: hidden;
+}
+
+.particle-background::before,
+.particle-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image:
+        radial-gradient(#d4af3788 1px, transparent 1px),
+        radial-gradient(#8a2be288 1.5px, transparent 1.5px);
+    background-size: 80px 80px, 100px 100px;
+    animation: moveStars 60s linear infinite;
+    opacity: 0.6;
+}
+
+.particle-background::after {
+    animation-direction: reverse;
+    opacity: 0.4;
+}
+
+@keyframes moveStars {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-200px, -300px); }
+}
+
+/* Estrella fugaz */
+@keyframes shootingStar {
+    0% {
+        transform: translateX(0) translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-600px) translateY(300px) scale(0.1);
+        opacity: 0;
+    }
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    box-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+    border-radius: 50%;
+    animation: shootingStar 1.5s linear infinite;
+    z-index: 1;
+    top: 10%;
+    left: 80%;
+}
+
