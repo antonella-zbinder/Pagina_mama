@@ -315,13 +315,22 @@ h2::before {
 /* Responsive */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     nav {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 0.5em;
+        margin-top: 1em;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        padding: 0.3em 0.6em;
+        margin: 0;
+        white-space: nowrap;
     }
 
     section {
@@ -343,8 +352,8 @@ h2::before {
         flex-direction: column;
         align-items: flex-start;
     }
-
 }
+
 
 /* Icono de estrella morada antes de cada item de Servicios */
 #servicios ul li::before {
