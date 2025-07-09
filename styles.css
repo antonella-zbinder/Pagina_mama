@@ -472,7 +472,7 @@ header h1 {
     font-weight: bold;
     width: 100%;
     text-align: left;
-    padding: 1em;
+    padding: 10px;
     border: none;
     cursor: pointer;
     display: flex;
