@@ -294,7 +294,7 @@ h2::before {
 }
 
 .icono-lista {
-    color: #d4af37;
+    color: #8a2be288;
     margin-right: 0.5em;
     font-size: 1.1em;
 }
@@ -383,6 +383,7 @@ header h1 {
         text-shadow: 0 0 15px rgba(212, 175, 55, 1);
     }
 }
+
 .particle-background {
     position: fixed;
     top: 0;
@@ -417,8 +418,13 @@ header h1 {
 }
 
 @keyframes moveStars {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-200px, -300px); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-200px, -300px);
+    }
 }
 
 /* Estrella fugaz */
@@ -427,9 +433,11 @@ header h1 {
         transform: translateX(0) translateY(0) scale(0.5);
         opacity: 0;
     }
+
     30% {
         opacity: 1;
     }
+
     100% {
         transform: translateX(-600px) translateY(300px) scale(0.1);
         opacity: 0;
@@ -449,3 +457,42 @@ header h1 {
     left: 80%;
 }
 
+.acordeon .item {
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    overflow: hidden;
+}
+
+.acordeon .titulo {
+    background-color: #1a1a1a;
+    color: #d4af37;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    padding: 1em;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-family: "Lora", serif;
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
+}
+
+.acordeon .titulo:hover {
+    background-color: #2a2a2a;
+}
+
+.acordeon .contenido {
+    background-color: #1a1a1a;
+    padding: 1em;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.acordeon .contenido.activo {
+    display: block;
+}
